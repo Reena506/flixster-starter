@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  background-color:white;
+  
+  
 }
 
 .App-header {
@@ -25,4 +28,18 @@
   .search-bar form {
     flex-direction: column;
   }
+
+
+}
+
+.moviecard{
+    border: 1px solid black;
+}
+
+.movieslist{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+    max-width: 1200px;
+    
 }
