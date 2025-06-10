@@ -37,9 +37,11 @@
 }
 
 .movieslist{
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    /* grid-template-columns: repeat(6, 1fr); */
+    justify-content: center;
     gap: 10px;
-    max-width: 1200px;
+    
     
 }
