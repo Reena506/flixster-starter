@@ -15,7 +15,7 @@ function SearchForm({onSearch}) {
     <form onSubmit={handleSearch}>
       <input className="search-input" type="text" name="searchInput" placeholder="Enter movie name" />
       <button  className="search-button" type="submit">Search</button>
-       <button type="button" className="now-playing" onClick={()=>onSearch("")}>Now Playing</button>
+       <button type="button" className="now-playing" onClick={()=>onSearch("")}>Clear</button>
     </form>
   )
 }

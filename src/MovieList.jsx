@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import MovieCard from "./MovieCard"
 // import data from "./data/data"
 
-const MovieList = ({data}) =>{
+const MovieList = ({data, onCardClick}) =>{
 
 
 
@@ -21,7 +21,7 @@ if (!data || !Array.isArray(data)) {
     <div>
     <div className="movieslist">
         {data.slice(0, visibleCount).map((movie=>
-                <MovieCard movie={movie}/>)
+                <MovieCard movie={movie} onClick={()=>onCardClick(movie)}/>)
             )}
        
     </div>
