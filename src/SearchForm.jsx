@@ -1,23 +1,37 @@
-
 import ReactDOM from "react-dom";
-import React from 'react'
+import React from "react";
+import { useState } from "react";
 
+function SearchForm({ onSearch }) {
+  const [input, setInput] = useState("");
 
-function SearchForm({onSearch}) {
   const handleSearch = (event) => {
     event.preventDefault();
-    const submittedSearch = event.target.elements.searchInput.value;
-    onSearch(submittedSearch);}
-  
+    onSearch(input);
+  };
+
+  const handleClear = () => {
+    setInput("");
+  };
 
   return (
-    
     <form onSubmit={handleSearch}>
-      <input className="search-input" type="text" name="searchInput" placeholder="Enter movie name" />
-      <button  className="search-button" type="submit">Search</button>
-       <button type="button" className="now-playing" onClick={()=>onSearch("")}>Clear</button>
+      <input
+        className="search-input"
+        type="text"
+        name="searchInput"
+        placeholder="Enter movie name"
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+      />
+      <button className="search-button" type="submit">
+        Search
+      </button>
+      <button type="button" className="now-playing" onClick={handleClear}>
+        Clear
+      </button>
     </form>
-  )
+  );
 }
 
-export default SearchForm
+export default SearchForm;

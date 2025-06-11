@@ -14,6 +14,9 @@ const App = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [mode, setMode] = useState("Now Playing");
   const [selectedMovie, setSelectedMovie] = useState(null);
+  const [favorites, setFavorites] = useState(new Set());
+  const[watched, setWatched]=useState(new Set())
+  
   const handleSearch = (submittedSearch) => {
     setSearchQuery(submittedSearch);
     if (submittedSearch === "") {
@@ -24,6 +27,35 @@ const App = () => {
       fetchSearchData(submittedSearch);
     }
   };
+
+const toggleFavorite = (movie) => {
+  setFavorites(prevFavorites => {
+    const newFavorites = new Set(prevFavorites);
+    if (newFavorites.has(movie)) {
+      newFavorites.delete(movie);
+    } else {
+      newFavorites.add(movie);
+    }
+    return newFavorites;
+  });
+};
+
+
+const toggleWatched = (movie) => {
+  setWatched(prevWatched => {
+    const newWatched = new Set(prevWatched);
+    if (newWatched.has(movie)) {
+      newWatched.delete(movie);
+    } else {
+      newWatched.add(movie);
+    }
+    return newWatched;
+  });
+};
+
+
+
+
   const handleSort = (type) => {
     setSort(type);
 
@@ -40,6 +72,11 @@ const App = () => {
 
     setMovies(sorted);
   };
+
+  
+
+
+
 
   const fetchData = async () => {
     try {
@@ -110,13 +147,15 @@ const App = () => {
           <option value="rating">Vote Average (Highest)</option>
         </select>
       </header>
-      <MovieList data={movies} onCardClick={handleCardClick} />
+      <main>
+      <MovieList data={movies} onCardClick={handleCardClick} favorites={favorites} onToggleFavorite={toggleFavorite} watched={watched} onToggleWatched={toggleWatched}/>
       {selectedMovie && (
         <>
           {console.log("Rendering Modal", selectedMovie)}
           <Modal movie={selectedMovie} onClose={() => setSelectedMovie(null)} />
         </>
       )}
+      </main>
       <footer className="footer">
         <p className="copyright"> 
           @ 2025 Reena
@@ -127,3 +166,7 @@ const App = () => {
 };
 
 export default App;
+
+
+
+

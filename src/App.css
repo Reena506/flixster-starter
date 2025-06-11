@@ -131,8 +131,11 @@
 
 .footer{
   background-color: black;
+ height: 100px
 }
 
 .copyright{
   color: white;
+  
+  
 }
