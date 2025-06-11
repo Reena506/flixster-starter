@@ -10,7 +10,7 @@ const MovieCard = ({ movie, onClick }) => {
     }}>
 
 
-      <img src={posterUrl} />
+      <img src={posterUrl} alt={"Movie Image"}/>
       <h3>{movie.original_title}</h3>
       <p>{movie.vote_average}</p>
     </div>
