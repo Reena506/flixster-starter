@@ -3,19 +3,19 @@ import ReactDOM from "react-dom";
 import React from 'react'
 
 
-function SearchForm({onMovieChange}) {
-  const handleSubmit = (event) => {
+function SearchForm({onSearch}) {
+  const handleSearch = (event) => {
     event.preventDefault();
     const submittedSearch = event.target.elements.searchInput.value;
-    onMovieChange(submittedSearch);}
+    onSearch(submittedSearch);}
   
 
   return (
     
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSearch}>
       <input className="search-input" type="text" name="searchInput" placeholder="Enter movie name" />
       <button  className="search-button" type="submit">Search</button>
-       <button className="now-playing" >Now Playing</button>
+       <button type="button" className="now-playing" onClick={()=>onSearch("")}>Now Playing</button>
     </form>
   )
 }
