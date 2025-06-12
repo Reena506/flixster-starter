@@ -56,27 +56,28 @@
 
 @media (max-width: 600px) {
   .moviecard {
-    flex: 0 0 calc(50% - 1rem); /* 2 per row */
+    flex: 0 0 calc(50% - 1rem); 
     max-width: calc(50% - 1rem);
   }
 }
 
 @media (max-width: 400px) {
   .moviecard {
-    flex: 0 0 100%; /* full width */
+    flex: 0 0 100%; 
     max-width: 100%;
   }
 }
 
 
-
+.sidebar{
+  background-color: black;
+}
 
 
  
 .movieslist{
     display: flex;
     flex-wrap: wrap;
-    /* grid-template-columns: repeat(6, 1fr); */
     justify-content: center;
     gap: 1rem;
     width: 100%;

@@ -31,7 +31,7 @@ const MovieCard = ({ movie, onClick, isFavorite, onToggleFavorite, isWatched, on
       </button>
       <button
         onClick={handleWatchClick} >
-        {isWatched ? "🎬" : "❌"}
+        {isWatched ? "✅" : "❌"}
       </button>
 
     </div>
