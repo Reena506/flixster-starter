@@ -1,7 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-const MovieCard = ({ movie, onClick, isFavorite, onToggleFavorite, isWatched, onToggleWatched }) => {
+const MovieCard = ({
+  movie,
+  onClick,
+  isFavorite,
+  onToggleFavorite,
+  isWatched,
+  onToggleWatched,
+}) => {
   const posterUrl = `https://image.tmdb.org/t/p/w300${movie.poster_path}`;
 
   const handleHeartClick = (e) => {
@@ -25,15 +32,8 @@ const MovieCard = ({ movie, onClick, isFavorite, onToggleFavorite, isWatched, on
       <img src={posterUrl} alt={movie.original_title} />
       <h3>{movie.original_title}</h3>
       <p>{movie.vote_average}</p>
-      <button
-        onClick={handleHeartClick} >
-        {isFavorite ? "❤️" : "🤍"}
-      </button>
-      <button
-        onClick={handleWatchClick} >
-        {isWatched ? "✅" : "❌"}
-      </button>
-
+      <button onClick={handleHeartClick}>{isFavorite ? "❤️" : "🤍"}</button>
+      <button onClick={handleWatchClick}>{isWatched ? "✅" : "❌"}</button>
     </div>
   );
 };

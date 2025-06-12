@@ -11,7 +11,7 @@ function SearchForm({ onSearch }) {
   };
 
   const handleClear = () => {
-    onSearch("")
+    onSearch("");
     setInput("");
   };
 

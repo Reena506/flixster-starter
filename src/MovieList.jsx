@@ -4,12 +4,15 @@ import MovieCard from "./MovieCard";
 
 // import data from "./data/data"
 
-const MovieList = ({ data, onCardClick, favorites, onToggleFavorite, watched, onToggleWatched }) => {
-  const [visibleCount, setVisibleCount] = useState(10);
-  const handleLoadMore = () => {
-    setVisibleCount((prev) => prev + 10);
-  };
-
+const MovieList = ({
+  data,
+  onCardClick,
+  favorites,
+  onToggleFavorite,
+  watched,
+  onToggleWatched,
+  onLoadMore,
+}) => {
   if (!data || !Array.isArray(data)) {
     // console.log(props.data)
     return <p>Loading...</p>;
@@ -18,10 +21,19 @@ const MovieList = ({ data, onCardClick, favorites, onToggleFavorite, watched, on
   return (
     <div>
       <div className="movieslist">
-        {data.slice(0, visibleCount).map((movie) => (
-          <MovieCard movie={movie}  onClick={() => onCardClick(movie)} isFavorite={favorites.has(movie.id)} onToggleFavorite={onToggleFavorite} isWatched={watched.has(movie.id)} onToggleWatched={onToggleWatched} /> ))}
+        {data.map((movie) => (
+          <MovieCard
+            key={movie.id}
+            movie={movie}
+            onClick={() => onCardClick(movie)}
+            isFavorite={favorites.has(movie.id)}
+            onToggleFavorite={onToggleFavorite}
+            isWatched={watched.has(movie.id)}
+            onToggleWatched={onToggleWatched}
+          />
+        ))}
       </div>
-      <button onClick={handleLoadMore}>Load More</button>
+      <button onClick={onLoadMore}>Load More</button>
     </div>
   );
 };

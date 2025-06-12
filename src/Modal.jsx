@@ -23,6 +23,15 @@ const Modal = ({ movie, onClose }) => {
         <p>
           <strong>Overview:</strong> {movie.overview}
         </p>
+        {movie.youtubeTrailerKey ? (
+          <iframe
+            className="video"
+            src={`https://www.youtube.com/embed/${movie.youtubeTrailerKey}`}
+          />
+        ) : (
+          <p>No trailer available</p>
+        )}
+        <button onClick={onClose}>Close</button>
       </div>
     </div>
   );
